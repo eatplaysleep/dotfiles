@@ -1,5 +1,9 @@
 #!/bin/bash
+echo "Switching to root"
 sudo su
+
+id
+
 echo "Running challenge setup script on host container"
 
 # Adjust VSCode settings
