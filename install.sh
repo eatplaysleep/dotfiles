@@ -2,8 +2,8 @@
 echo "Running challenge setup script on host container"
 
 # Adjust VSCode settings
-mkdir -p /user-data/User
-cat > /user-data/User/settings.json <<EOF
+sudo mkdir -p /user-data/User
+sudo cat > /user-data/User/settings.json <<EOF
 {
   "workbench.colorTheme": "Default Dark+"
 }
@@ -11,14 +11,14 @@ EOF
 
 # Install Node.js
 # https://github.com/nodesource/distributions/blob/master/README.md
-curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
-apt-get install -y nodejs
+sudo curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+sudo apt-get install -y nodejs
 
 # Clone the example repository
-git clone https://github.com/instruqt/typescript-example-app.git /app
+sudo git clone https://github.com/instruqt/typescript-example-app.git /app
 
 # Remove return statements to break the tests
-ex +g/return/d -cwq /app/src/sum.ts
+sudo ex +g/return/d -cwq /app/src/sum.ts
 
 # Change directory to the cloned repository and install its dependencies
 cd /app
