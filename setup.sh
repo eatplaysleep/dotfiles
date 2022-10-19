@@ -5,7 +5,8 @@ echo "Running challenge setup script on host container"
 mkdir -p /user-data/User
 cat > /user-data/User/settings.json <<EOF
 {
-  "workbench.colorTheme": "Default Dark+"
+  "workbench.colorTheme": "Default Dark+",
+  "security.workspace.trust.enabled": false
 }
 EOF
 
