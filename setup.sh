@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Running challenge setup script on host container"
 
-# Adjust VSCode settings
+echo "Setting custom VSCode settings"
 mkdir -p ~/user-data/User
 cat > ~/user-data/User/settings.json <<EOF
 {
@@ -20,14 +20,14 @@ cat > ~/user-data/User/settings.json <<EOF
 }
 EOF
 
-# Install Node.js
+echo "Installing Node.js"
 # https://github.com/nodesource/distributions/blob/master/README.md
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 apt-get install -y nodejs
 
-# Clone the example repository
+echo "Cloning the template repo"
 git clone https://github.com/udplabs/auth-rocks-app-template.git ~/app
 
-# Change directory to the cloned repository and install its dependencies
+echo "Changing directory to the cloned repo and installing dependencies"
 cd ~/app
 npm ci
