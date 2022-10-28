@@ -22,8 +22,8 @@ EOF
 
 # Install Node.js
 # https://github.com/nodesource/distributions/blob/master/README.md
-# curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
-# apt-get install -y nodejs
+curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+apt-get install -y nodejs
 
 # Clone the example repository
 git clone https://github.com/udplabs/auth-rocks-app-template.git ~/app
