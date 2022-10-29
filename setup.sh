@@ -19,11 +19,12 @@ cat > ~/user-data/User/settings.json <<EOF
 }
 EOF
 
+pwd
 echo "===>Installing NodeJS"
 # https://github.com/nodesource/distributions/blob/master/README.md
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 apt-get install -y nodejs
-
+pwd
 echo "===>Cloning template repo..."
 git clone https://github.com/udplabs/auth-rocks-app-template.git ~/app
 
