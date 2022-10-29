@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "Running challenge setup script on host container"
 echo "===> Setting custom VSCode settings..."
-mkdir -p ~/user-data/User
-cat > ~/user-data/User/settings.json <<EOF
+mkdir -p /home/coder/user-data/User
+cat > /home/coder/user-data/User/settings.json <<EOF
 {
     "explorer.fileNesting.enabled": true,
     "editor.formatOnSave": true,
@@ -19,16 +19,15 @@ cat > ~/user-data/User/settings.json <<EOF
 }
 EOF
 
-pwd
 echo "===>Installing NodeJS"
 # https://github.com/nodesource/distributions/blob/master/README.md
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 apt-get install -y nodejs
-pwd
+
 echo "===>Cloning template repo..."
-git clone https://github.com/udplabs/auth-rocks-app-template.git ~/app
+git clone https://github.com/udplabs/auth-rocks-app-template.git /home/coder/app
 
 echo "===>Changing CWD..."
 echo "===>Installing dependencies..."
-cd ~/app
+cd /home/coder/app
 npm ci
