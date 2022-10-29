@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sh setup.sh
+sudo sh setup.sh
