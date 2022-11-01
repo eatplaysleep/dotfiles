@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euxo pipefail
+# set -euxo pipefail
 
 echo "Running track setup script"
 
@@ -92,7 +92,7 @@ envsubst < $NGINX_CONFIG_TEMPLATE > $NGINX_CONFIG_FILE
 
 ## Enable config and generate cert
 ln -s $NGINX_CONFIG_FILE $NGINX_CONFIG_LINK
-certbot --non-interactive --redirect --agree-tos -d $SANDBOX_URL -m $CERT_CONTACT --nginx
+certbot --non-interactive --redirect --agree-tos -d $SANDBOX_URL -d gentle-animal.auth.rocks -m $CERT_CONTACT --nginx
 # certbot certonly --cert-name $SANDBOX_URL --dns-route53 -d gentle-animal.auth.rocks
 
 if pgrep -x nginx >/dev/null; then
