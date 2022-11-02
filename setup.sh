@@ -38,7 +38,7 @@ apt-get -y update
 
 # --------- Install NodeJS ----------
 ## See https://github.com/nodesource/distributions/blob/master/README.md
-if ![[ -x /usr/local/bin/node ]]; then
+if ! [ -x /usr/local/bin/node ]; then
     curl -fsSL $NODEJS_SRC_URL | bash -
     apt-get install -y nodejs
 fi
@@ -67,19 +67,19 @@ cp $APP_PATH/.vscode/settings.json $USER_SETTINGS
 ## For details on why we are doing this, see https://coder.com/docs/code-server/latest/guide#using-lets-encrypt-with-nginx
 
 ## Install nginx (if not present)
-if ! [[ -x /usr/local/bin/nginx ]]; then
+if ! [ -x /usr/local/bin/nginx ]; then
     apt-get install -y nginx
 fi
 
 ## Install snapd (if not present)
-if ! [[ -x /usr/local/bin/snap ]]; then
+if ! [ -x /usr/local/bin/snap ]; then
     snap install core
 fi
 ## Refresh snapd core
 snap refresh core
 
 ## Install certbot if not present
-if ! [[ -x /usr/local/bin/certbot ]]; then
+if ! [ -x /usr/local/bin/certbot ]; then
     snap install --classic certbot
     ln -s /snap/bin/certbot /usr/bin/certbot
 fi
@@ -89,7 +89,7 @@ snap set certbot trust-plugin-with-root=ok
 snap install certbot-dns-route53
 
 ## Install envsubst (if not installed)
-if ! [[ -x /usr/local/bin/envsubst ]]; then
+if ! [ -x /usr/local/bin/envsubst ]; then
     apt-get install gettext-base
 fi
 
