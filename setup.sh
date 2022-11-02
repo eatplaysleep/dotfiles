@@ -73,9 +73,10 @@ fi
 
 ## Install snapd (if not present)
 if ! [ -x /usr/local/bin/snap ]; then
-    snap install core
+    apt-get install -y snapd
 fi
-## Refresh snapd core
+## Install & Refresh snapd core
+snap install core
 snap refresh core
 
 ## Install certbot if not present
